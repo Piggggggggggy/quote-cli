@@ -110,7 +110,12 @@ impl QuoteList {
     fn build(s: String) -> QuoteList {
         // todo make this more robust
         let author = s.lines().next().unwrap().trim().replace("Author: ", "");
-        let quotes = s.lines().skip(1).map(|line| line.to_string()).collect();
+        let quotes = s
+            .trim()
+            .lines()
+            .skip(1)
+            .map(|line| line.to_string())
+            .collect();
         QuoteList { author, quotes }
     }
 }
